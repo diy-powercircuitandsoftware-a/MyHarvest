@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{a920de3f-908e-4f92-8987-05c54ef311c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{5728c3d3-8ed7-4d6b-9321-02ccd57e88ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Title">
+      <UniqueIdentifier>{38bdb304-f0e4-4420-ae2b-84b7e02080f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Title">
+      <UniqueIdentifier>{3a70bb28-6120-4f99-b3fa-a51d104086f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\FilesManager">
+      <UniqueIdentifier>{36053be5-60c0-4bae-b709-9c18f0e686be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\FilesManager">
+      <UniqueIdentifier>{41c3003b-653d-425a-9a89-cad56b6eb9f1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game\Title\MainTitle.cpp">
+      <Filter>Source Files\Game\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\FilesManager\FilesManager.cpp">
+      <Filter>Source Files\Game\FilesManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game\Title\MainTitle.h">
+      <Filter>Header Files\Game\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FilesManager\FilesManager.h">
+      <Filter>Header Files\Game\FilesManager</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

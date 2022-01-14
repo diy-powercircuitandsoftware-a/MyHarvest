@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<MyHarvest>
+    <Config>
+        <Display>
+            <Width>0</Width>
+            <Height>0</Height>
+            <FontSize>14</FontSize>
+        </Display>
+        <Asset>
+            <Path></Path>
+            <Title>
+                <Audio></Audio>
+            </Title>
+        </Asset>
+    </Config>
+</MyHarvest>
