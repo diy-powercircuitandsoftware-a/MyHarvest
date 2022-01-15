@@ -2,8 +2,8 @@
 <MyHarvest>
     <Config>
         <Display>
-            <Width>1024</Width>
-            <Height>768</Height>
+            <Width>0</Width>
+            <Height>0</Height>
             <FontSize>14</FontSize>
         </Display>
         <Asset>

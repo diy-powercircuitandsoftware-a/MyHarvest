@@ -2,23 +2,25 @@
 #include "../GameEngine/raylib/src/raylib.h"
 #include "Title/MainTitle.h"
 #include "FilesManager/FilesManager.h"
-typedef enum GameScreen { TITLE,NEWGAME, GAMEPLAY, PAUSEGAME,SAVEGAME, ENDING } GameScreen;
+#include <iostream>
+//GetFontDefault().baseSize
+typedef enum GameScreen { TITLE,NEWGAME, GAMEPLAY, PAUSEGAME,SAVEGAME, ENDING,ERROR } GameScreen;
 
 int main()
 {
      
      int screen_fontsize=14 ;
-    GameScreen current_screen = TITLE;
+    GameScreen current_screen ;
     FilesManager file_manager;
     if (file_manager.HadConfig()) {
-       // screen_width = 800;
-        //screen_height = 600;
-        //screen_fontsize = 14;
-        InitWindow(0, 0, "MyHarvest");
+        file_manager.LoadConfig();
+        screen_fontsize= file_manager.displayconfig.FontSize;      
+        InitWindow(file_manager.displayconfig.Width, file_manager.displayconfig.Height, "MyHarvest");
+        current_screen = GameScreen::TITLE;
     }
     else {
-        InitWindow(0, 0, "MyHarvest");
-        ToggleFullscreen();
+        InitWindow(1024, 768, "MyHarvest");
+        current_screen = GameScreen::ERROR;
     }
      
     
