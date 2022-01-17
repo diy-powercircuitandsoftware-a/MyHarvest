@@ -144,11 +144,12 @@
   <ItemGroup>
     <ClCompile Include="Game\FilesManager\FilesManager.cpp" />
     <ClCompile Include="Game\main.cpp" />
-    <ClCompile Include="Game\Title\MainTitle.cpp" />
+    <ClCompile Include="Game\Title\GameTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\FilesManager\FilesManager.h" />
-    <ClInclude Include="Game\Title\MainTitle.h" />
+    <ClInclude Include="Game\Title\GameTitle.h" />
+    <ClInclude Include="Game\UI\GameFont.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

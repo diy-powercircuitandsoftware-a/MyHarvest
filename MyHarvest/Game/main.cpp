@@ -1,30 +1,30 @@
 
 #include "../GameEngine/raylib/src/raylib.h"
-#include "Title/MainTitle.h"
+#include "Title/GameTitle.h";
 #include "FilesManager/FilesManager.h"
 #include <iostream>
-//GetFontDefault().baseSize
-typedef enum GameScreen { TITLE,NEWGAME, GAMEPLAY, PAUSEGAME,SAVEGAME, ENDING,ERROR } GameScreen;
+//https://unityinsight.wordpress.com/unity-dictionary/
 
 int main()
 {
-     
-     int screen_fontsize=14 ;
-    GameScreen current_screen ;
+    typedef enum GameScene { TITLE, NEWGAME, GAMEPLAY, PAUSEGAME, SAVEGAME, ENDING, ERROR } GameScene;
+    GameScene current_screen ;
     FilesManager file_manager;
-    if (file_manager.HadConfig()) {
-        file_manager.LoadConfig();
-        screen_fontsize= file_manager.displayconfig.FontSize;      
+    if (file_manager.LoadConfig()) {
         InitWindow(file_manager.displayconfig.Width, file_manager.displayconfig.Height, "MyHarvest");
-        current_screen = GameScreen::TITLE;
+        current_screen = GameScene::TITLE;
     }
     else {
         InitWindow(1024, 768, "MyHarvest");
-        current_screen = GameScreen::ERROR;
+        current_screen = GameScene::ERROR;
     }
-     
+  //  InitAudioDevice();             
+
+  //  Music music = LoadMusicStream("test.mp3");
+
+   // PlayMusicStream(music);
     
-    MainTitle main_title(GetScreenWidth(), GetScreenHeight(), screen_fontsize);
+    GameTitle game_title(GetScreenWidth(), GetScreenHeight(),  file_manager.LoadSaveGame());
     
 
 
@@ -35,18 +35,19 @@ int main()
    
     while (!WindowShouldClose())
     {
+       // UpdateMusicStream(music);
 
 
-        if (current_screen == GameScreen::TITLE) {
-            main_title.Update();
-        }
+       /* if (current_screen == GameScene::TITLE) {
+            game_title.Update();
+        }*/
 
-
+       
         BeginDrawing();
 
-        
-        if (current_screen == GameScreen::TITLE) {
-            main_title.Render();
+       
+        if (current_screen == GameScene::TITLE) {
+            game_title.Render();
         }
        
 

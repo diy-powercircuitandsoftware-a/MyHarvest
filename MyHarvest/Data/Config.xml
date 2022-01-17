@@ -1,16 +1,22 @@
-﻿<?xml version="1.0"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <MyHarvest>
-    <Config>
-        <Display>
-            <Width>1024</Width>
-            <Height>768</Height>
-            <FontSize>14</FontSize>
-        </Display>
-        <Asset>
-            <Path></Path>
-            <Title>
-                <Audio></Audio>
-            </Title>
-        </Asset>
-    </Config>
+   <Config>
+      <Display>
+         <Width>1024</Width>
+         <Height>768</Height>
+      </Display>
+	   <Font>
+		  <SelectorFont size="35" path=""></SelectorFont>
+	   </Font>
+      <GameData>
+         <Asset />
+      </GameData>
+      <Title>		 
+         <Main>
+            <Asset>
+               <Audio />
+            </Asset>           
+         </Main>
+      </Title>
+   </Config>
 </MyHarvest>

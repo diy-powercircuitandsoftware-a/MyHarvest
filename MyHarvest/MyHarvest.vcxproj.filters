@@ -31,9 +31,12 @@
     <Filter Include="Header Files\Game\FilesManager">
       <UniqueIdentifier>{41c3003b-653d-425a-9a89-cad56b6eb9f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game\UI">
+      <UniqueIdentifier>{6856fbb8-31c8-4f60-adeb-1bf76a2d3786}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game\Title\MainTitle.cpp">
+    <ClCompile Include="Game\Title\GameTitle.cpp">
       <Filter>Source Files\Game\Title</Filter>
     </ClCompile>
     <ClCompile Include="Game\FilesManager\FilesManager.cpp">
@@ -44,11 +47,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game\Title\MainTitle.h">
+    <ClInclude Include="Game\Title\GameTitle.h">
       <Filter>Header Files\Game\Title</Filter>
     </ClInclude>
     <ClInclude Include="Game\FilesManager\FilesManager.h">
       <Filter>Header Files\Game\FilesManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\UI\GameFont.h">
+      <Filter>Header Files\Game\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
