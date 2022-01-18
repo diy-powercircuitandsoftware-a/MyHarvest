@@ -183,9 +183,9 @@
 #define RAYGUI_H
 
 #define RAYGUI_VERSION  "3.0"
-
+#define RAYGUI_IMPLEMENTATION;
 #if !defined(RAYGUI_STANDALONE)
-    #include "raylib.h"
+    #include "../raylib.h"
 #endif
 
 // Function specifiers in case library is build/used as a shared library (Windows)

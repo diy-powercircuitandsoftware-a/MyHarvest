@@ -34,6 +34,36 @@
     <Filter Include="Header Files\Game\UI">
       <UniqueIdentifier>{6856fbb8-31c8-4f60-adeb-1bf76a2d3786}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game\Object">
+      <UniqueIdentifier>{4e198f3c-c271-4006-9d51-faea28580504}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Object">
+      <UniqueIdentifier>{aaa33bc6-4557-4d82-8e8f-ed8d04140e79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Script">
+      <UniqueIdentifier>{e063bca1-5643-4c23-8565-0734f9dc2db6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Script">
+      <UniqueIdentifier>{438720e3-5502-4ac9-ba4c-6fed16c46afa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Object\Equipment">
+      <UniqueIdentifier>{592e3569-8f72-483e-81a4-eb2ad325b4f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Object\Equipment">
+      <UniqueIdentifier>{2c1eb169-d2ef-48ed-b6cf-30cb93f0e502}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Object\Equipment\Agricultural">
+      <UniqueIdentifier>{e11e3ef9-a236-48e3-be8a-7cdd779aa4b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Object\Equipment\Agricultural">
+      <UniqueIdentifier>{3bdaded9-9ad7-4637-b9a8-371eb91b0d3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Object\Player">
+      <UniqueIdentifier>{b240ba1e-18d6-4647-b25b-85311a3c5e4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Object\Player">
+      <UniqueIdentifier>{74d14b7e-fba1-425d-99d9-37d56ad14639}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Title\GameTitle.cpp">
@@ -45,6 +75,9 @@
     <ClCompile Include="Game\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Object\Player\Player.cpp">
+      <Filter>Source Files\Game\Object\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Title\GameTitle.h">
@@ -55,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="Game\UI\GameFont.h">
       <Filter>Header Files\Game\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Object\Player\Player.h">
+      <Filter>Header Files\Game\Object\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

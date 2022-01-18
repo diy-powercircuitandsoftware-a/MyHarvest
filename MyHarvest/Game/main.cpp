@@ -8,50 +8,57 @@
 int main()
 {
     typedef enum GameScene { TITLE, NEWGAME, GAMEPLAY, PAUSEGAME, SAVEGAME, ENDING, ERROR } GameScene;
-    GameScene current_screen ;
+    GameScene current_scene;
     FilesManager file_manager;
     if (file_manager.LoadConfig()) {
-        InitWindow(file_manager.displayconfig.Width, file_manager.displayconfig.Height, "MyHarvest");
-        current_screen = GameScene::TITLE;
+        InitWindow(file_manager.DisplayConfig.Width, file_manager.DisplayConfig.Height, "MyHarvest");
+        current_scene = GameScene::TITLE;
     }
     else {
         InitWindow(1024, 768, "MyHarvest");
-        current_screen = GameScene::ERROR;
+        current_scene = GameScene::ERROR;
+        
     }
-  //  InitAudioDevice();             
+    GameTitle game_title(GetScreenWidth(), GetScreenHeight(), file_manager.HadSaveGame());
+    game_title.SelectorFont = file_manager.SelectorFont;
+    game_title.Init();
+     InitAudioDevice();             
 
-  //  Music music = LoadMusicStream("test.mp3");
-
-   // PlayMusicStream(music);
+     Music background_music = LoadMusicStream("a.mp3");
+    PlayMusicStream(background_music);
     
-    GameTitle game_title(GetScreenWidth(), GetScreenHeight(),  file_manager.LoadSaveGame());
-    
+   
 
 
     SetTargetFPS(60);
    
 
 
-   
+     
     while (!WindowShouldClose())
     {
-       // UpdateMusicStream(music);
+        UpdateMusicStream(background_music);
 
 
-       /* if (current_screen == GameScene::TITLE) {
+        if (current_scene == GameScene::TITLE) {
             game_title.Update();
-        }*/
+        }
 
        
         BeginDrawing();
-
+        
        
-        if (current_screen == GameScene::TITLE) {
-            game_title.Render();
-        }
+       if (current_scene == GameScene::TITLE) {
+           game_title.Render();
+        } 
+      else if (current_scene == GameScene::ERROR) {
+           ClearBackground(WHITE);
+           DrawText("Error", 0, 0, 100, BLACK);
+       }
+            
        
 
-        EndDrawing();
+         EndDrawing();
 
     }
 

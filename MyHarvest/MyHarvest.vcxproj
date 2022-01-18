@@ -144,10 +144,12 @@
   <ItemGroup>
     <ClCompile Include="Game\FilesManager\FilesManager.cpp" />
     <ClCompile Include="Game\main.cpp" />
+    <ClCompile Include="Game\Object\Player\Player.cpp" />
     <ClCompile Include="Game\Title\GameTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\FilesManager\FilesManager.h" />
+    <ClInclude Include="Game\Object\Player\Player.h" />
     <ClInclude Include="Game\Title\GameTitle.h" />
     <ClInclude Include="Game\UI\GameFont.h" />
   </ItemGroup>

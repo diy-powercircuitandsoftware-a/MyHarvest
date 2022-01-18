@@ -7,19 +7,22 @@ class FilesManager
 {
 public:
 	
-	bool HadAsset();	
+	char* GetGameData();
+	bool HadSaveGame();
 	bool LoadConfig();
 	bool LoadSaveGame();
+	char* GameTitleMusic;
 	struct DisplayConfig
 	{
 		int Width;
-		int Height;	
-		
+		int Height;			
 	};
 	 
-	DisplayConfig displayconfig;
-	GameFont SelectorFont ;
-	
+	DisplayConfig DisplayConfig;
+	GameFont SelectorFont;
+
+private:
+	char* AssetPath;
 };
 
 #endif

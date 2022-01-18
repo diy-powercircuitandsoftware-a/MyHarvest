@@ -10,12 +10,16 @@ public:
 	void Render();	
 	void Init();
 	GameFont SelectorFont;
+	char player_name[12] = "Player";
 private :
 	typedef enum Selector { MAIN,   NEWGAME, LOADGAME} Selector;	 
-	Selector TitleSceneSelector;
+	Selector main_scene_selector;
 	Selector scene;
 	int w; 
-	int h; 
+	int h;  
 	bool hadsavegame;
+	Vector2 main_newgame;
+	Vector2 main_loadgame;
+	Rectangle txt_newgame_rect;
 };
 #endif

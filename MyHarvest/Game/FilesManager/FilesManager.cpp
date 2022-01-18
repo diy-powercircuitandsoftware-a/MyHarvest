@@ -1,14 +1,17 @@
 #include "FilesManager.h"
 #include "../../GameEngine/xml/src/rapidxml_utils.hpp"
 #include "../../GameEngine/raylib/src/raylib.h"
+#include <iostream>
 
-bool FilesManager::HadAsset() {
-	return false;
+char* FilesManager::GetGameData() {
+	return this->AssetPath;
 }
- 
+bool FilesManager::HadSaveGame() {
+	 return std::ifstream("Data/Save.xml").good();
+}
 bool FilesManager::LoadSaveGame() {
 	return false;
-	//return std::ifstream("Data/Save.xml").good();
+	 
 }
 bool FilesManager::LoadConfig() {
 	
@@ -21,18 +24,20 @@ bool FilesManager::LoadConfig() {
 			rapidxml::file<> xmlFile("Data/Config.xml");
 			rapidxml::xml_document<> doc;
 			doc.parse<0>(xmlFile.data());
-
 			rapidxml::xml_node<>* rootnode = doc.first_node("MyHarvest");
 			rapidxml::xml_node<>* confignode = rootnode->first_node("Config");
 			rapidxml::xml_node<>* displaynode = confignode->first_node("Display");		
 			rapidxml::xml_node<>* fontnode = confignode->first_node("Font");
-
-			this->displayconfig.Width = atoi(displaynode->first_node("Width")->value());
-			this->displayconfig.Height = atoi(displaynode->first_node("Height")->value());
-			this->SelectorFont.size = atoi(fontnode->first_node("SelectorFont")->first_attribute("size")->value());
-			this->SelectorFont.font = LoadFont(fontnode->first_node("SelectorFont")->first_attribute("path")->value());
-
-
+			this->DisplayConfig.Width = atoi(displaynode->first_node("Width")->value());
+			this->DisplayConfig.Height = atoi(displaynode->first_node("Height")->value());
+			
+			if (fontnode->first_node("SelectorFont")->first_attribute("size") !=  nullptr&& fontnode->first_node("SelectorFont")->first_attribute("path") != nullptr) {
+			this->SelectorFont.SetFont(fontnode->first_node("SelectorFont")->first_attribute("path")->value(), std::stof(fontnode->first_node("SelectorFont")->first_attribute("size")->value()));	
+			}
+			if (confignode->first_node("GameData") != nullptr) {
+				this->AssetPath = confignode->first_node("GameData")->value();
+			}
+		 
 			
 			return true;
 		}

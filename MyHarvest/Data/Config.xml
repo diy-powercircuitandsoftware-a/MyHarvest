@@ -6,10 +6,10 @@
          <Height>768</Height>
       </Display>
 	   <Font>
-		  <SelectorFont size="35" path=""></SelectorFont>
+		  <SelectorFont size="20" path=""></SelectorFont>
 	   </Font>
-      <GameData>
-         <Asset />
+      <GameData>	
+         <Asset>Asset</Asset>
       </GameData>
       <Title>		 
          <Main>
