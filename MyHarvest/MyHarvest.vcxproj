@@ -142,16 +142,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Game\FilesManager\FilesManager.cpp" />
+    <ClCompile Include="Game\Config\ReadXMLConfig.cpp" />
+    <ClCompile Include="Game\Config\SaveGame.cpp" />
     <ClCompile Include="Game\main.cpp" />
     <ClCompile Include="Game\Object\Player\Player.cpp" />
     <ClCompile Include="Game\Title\GameTitle.cpp" />
+    <ClCompile Include="Game\UI\DrawTextList.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game\FilesManager\FilesManager.h" />
+    <ClInclude Include="Game\Config\FontConfig.h" />
+    <ClInclude Include="Game\Config\ReadXMLConfig.h" />
+    <ClInclude Include="Game\Config\SaveGame.h" />
     <ClInclude Include="Game\Object\Player\Player.h" />
     <ClInclude Include="Game\Title\GameTitle.h" />
-    <ClInclude Include="Game\UI\GameFont.h" />
+    <ClInclude Include="Game\UI\DrawTextList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

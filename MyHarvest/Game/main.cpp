@@ -1,17 +1,17 @@
 
 #include "../GameEngine/raylib/src/raylib.h"
 #include "Title/GameTitle.h";
-#include "FilesManager/FilesManager.h"
+#include "Config/ReadXMLConfig.h"
 #include <iostream>
-//https://unityinsight.wordpress.com/unity-dictionary/
+
 
 int main()
 {
     typedef enum GameScene { TITLE, NEWGAME, GAMEPLAY, PAUSEGAME, SAVEGAME, ENDING, ERROR } GameScene;
     GameScene current_scene;
-    FilesManager file_manager;
-    if (file_manager.LoadConfig()) {
-        InitWindow(file_manager.DisplayConfig.Width, file_manager.DisplayConfig.Height, "MyHarvest");
+    ReadXMLConfig xmlconfig;
+    if (xmlconfig.LoadConfig()) {
+        InitWindow(xmlconfig.DisplayConfig.Width, xmlconfig.DisplayConfig.Height, "MyHarvest");
         current_scene = GameScene::TITLE;
     }
     else {
@@ -19,12 +19,15 @@ int main()
         current_scene = GameScene::ERROR;
         
     }
-    GameTitle game_title(GetScreenWidth(), GetScreenHeight(), file_manager.HadSaveGame());
-    game_title.SelectorFont = file_manager.SelectorFont;
+    xmlconfig.UpdateFont();
+    GameTitle game_title( false);
+    game_title.SelectorFont = xmlconfig.SelectorFont;
+    game_title.TitleFont = xmlconfig.TitleFont;
+    game_title.LabelFont = xmlconfig.LabelFont;
     game_title.Init();
      InitAudioDevice();             
 
-     Music background_music = LoadMusicStream("a.mp3");
+    Music background_music = LoadMusicStream(xmlconfig.TitleAsset.MainAudioPath.c_str());
     PlayMusicStream(background_music);
     
    

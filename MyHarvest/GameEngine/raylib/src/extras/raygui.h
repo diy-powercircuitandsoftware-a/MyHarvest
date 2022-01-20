@@ -184,6 +184,7 @@
 
 #define RAYGUI_VERSION  "3.0"
 #define RAYGUI_IMPLEMENTATION;
+ 
 #if !defined(RAYGUI_STANDALONE)
     #include "../raylib.h"
 #endif

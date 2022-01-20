@@ -5,18 +5,17 @@
          <Width>1024</Width>
          <Height>768</Height>
       </Display>
-	   <Font>
-		  <SelectorFont size="20" path=""></SelectorFont>
+	   
+      <GameData assetpath="Asset/">	       
+		 <Title>		 
+			<Main audiopath="audio/music/a.mp3"></Main>
+		 </Title>
+		 <Font>
+		  <SelectorFont size="50" path="font/opensans/OpenSans-Regular.ttf"></SelectorFont>
+		  <TitleFont size="100" path="font/opensans/OpenSans-Regular.ttf"></TitleFont>
+		  <LabelFont size="50" path="font/opensans/OpenSans-Regular.ttf"></LabelFont>
 	   </Font>
-      <GameData>	
-         <Asset>Asset/</Asset>
       </GameData>
-      <Title>		 
-         <Main>
-            <Asset>
-               <Audio />
-            </Asset>           
-         </Main>
-      </Title>
+      
    </Config>
 </MyHarvest>

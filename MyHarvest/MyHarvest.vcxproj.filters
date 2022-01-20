@@ -25,15 +25,6 @@
     <Filter Include="Source Files\Game\Title">
       <UniqueIdentifier>{3a70bb28-6120-4f99-b3fa-a51d104086f5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Game\FilesManager">
-      <UniqueIdentifier>{36053be5-60c0-4bae-b709-9c18f0e686be}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Game\FilesManager">
-      <UniqueIdentifier>{41c3003b-653d-425a-9a89-cad56b6eb9f1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Game\UI">
-      <UniqueIdentifier>{6856fbb8-31c8-4f60-adeb-1bf76a2d3786}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Game\Object">
       <UniqueIdentifier>{4e198f3c-c271-4006-9d51-faea28580504}</UniqueIdentifier>
     </Filter>
@@ -64,13 +55,22 @@
     <Filter Include="Source Files\Game\Object\Player">
       <UniqueIdentifier>{74d14b7e-fba1-425d-99d9-37d56ad14639}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game\Config">
+      <UniqueIdentifier>{41c3003b-653d-425a-9a89-cad56b6eb9f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Config">
+      <UniqueIdentifier>{36053be5-60c0-4bae-b709-9c18f0e686be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\UI">
+      <UniqueIdentifier>{662fd1f9-f826-43f6-9f97-667979b75c30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\UI">
+      <UniqueIdentifier>{ce1bafd4-07e6-420c-af55-2332f99eed33}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Title\GameTitle.cpp">
       <Filter>Source Files\Game\Title</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\FilesManager\FilesManager.cpp">
-      <Filter>Source Files\Game\FilesManager</Filter>
     </ClCompile>
     <ClCompile Include="Game\main.cpp">
       <Filter>Source Files</Filter>
@@ -78,19 +78,34 @@
     <ClCompile Include="Game\Object\Player\Player.cpp">
       <Filter>Source Files\Game\Object\Player</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Config\ReadXMLConfig.cpp">
+      <Filter>Source Files\Game\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Config\SaveGame.cpp">
+      <Filter>Source Files\Game\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\UI\DrawTextList.cpp">
+      <Filter>Source Files\Game\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Title\GameTitle.h">
       <Filter>Header Files\Game\Title</Filter>
     </ClInclude>
-    <ClInclude Include="Game\FilesManager\FilesManager.h">
-      <Filter>Header Files\Game\FilesManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\UI\GameFont.h">
-      <Filter>Header Files\Game\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Object\Player\Player.h">
       <Filter>Header Files\Game\Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Config\ReadXMLConfig.h">
+      <Filter>Header Files\Game\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Config\FontConfig.h">
+      <Filter>Header Files\Game\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Config\SaveGame.h">
+      <Filter>Header Files\Game\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\UI\DrawTextList.h">
+      <Filter>Header Files\Game\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
