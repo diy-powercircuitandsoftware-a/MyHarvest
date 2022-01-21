@@ -21,7 +21,7 @@ void DrawTextList::Update()
 	for (int i = 0; i < this->td.size(); i++) {
 		this->td[i].pos.x = this->accumulateposition.x;
 		this->td[i].pos.y = this->accumulateposition.y;
-		measuretext = MeasureTextEx(this->td[i].f, this->td[i].text.c_str(), this->td[i].size, this->td[i].spacing);
+		measuretext = MeasureTextEx(this->td[i].font, this->td[i].text.c_str(), this->td[i].font.baseSize, this->td[i].font.glyphPadding);
 		if (this->updatepos == UpdatePosition::X) {
 			this->accumulateposition.x = this->accumulateposition.x + measuretext.x;
 		}
@@ -41,7 +41,7 @@ void DrawTextList::Update()
 void DrawTextList::Render()
 {	 
 	for (int i = 0; i < this->td.size(); i++) {
-		DrawTextEx(this->td[i].f, this->td[i].text.c_str(), this->td[i].pos, this->td[i].size, this->td[i].spacing, this->td[i].col);
+		DrawTextEx(this->td[i].font, this->td[i].text.c_str(), this->td[i].pos, this->td[i].font.baseSize, this->td[i].font.glyphPadding, this->td[i].color);
 	}
 }
 

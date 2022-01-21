@@ -1,9 +1,8 @@
 #ifndef DRAWTEXTLIST_H
 #define DRAWTEXTLIST_H
+#include "../../../../GameEngine/raylib/src/raylib.h"
 #include <string>
 #include <vector>
-
-#include "../../GameEngine/raylib/src/raylib.h"
 #include <map>
 
 class DrawTextList
@@ -11,20 +10,15 @@ class DrawTextList
 public:
 	typedef enum UpdatePosition { X, Y, ALL } UpdatePosition;
 	typedef struct TextData
-	{
-		
+	{		
 		std::string text;
-		Font f;
-		float size;
-		float spacing;
+		Font font;		 
 		Vector2 pos;
-		Color col;
-		TextData(std::string text, Font f, float size, float spacing, Color col) {
+		Color color;
+		TextData(std::string text, Font f,   Color col) {
 			this->text = text;
-			this->f = f;
-			this->size = size;
-			this->spacing = spacing;
-			this->col = col;
+			this->font = f;
+			this->color = col;
 		}
 		 
 	}TextData;

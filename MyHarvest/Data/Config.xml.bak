@@ -5,17 +5,21 @@
          <Width>1024</Width>
          <Height>768</Height>
       </Display>
-	   
-      <GameData assetpath="Asset/">	       
-		 <Title>		 
-			<Main audiopath="audio/music/a.mp3"></Main>
-		 </Title>
-		 <Font>
-		  <SelectorFont size="50" path="font/opensans/OpenSans-Regular.ttf"></SelectorFont>
-		  <TitleFont size="100" path="font/opensans/OpenSans-Regular.ttf"></TitleFont>
-		  <LabelFont size="50" path="font/opensans/OpenSans-Regular.ttf"></LabelFont>
-	   </Font>
+      <GameData assetpath="Asset/">
+         <Title>
+            <Main audiopath="audio/music/a.mp3" />
+         </Title>
+         <Font>
+            <SelectorFont size="50" path="font/opensans/OpenSans-Regular.ttf" />
+            <TitleFont size="100" path="font/opensans/OpenSans-Regular.ttf" />
+            <LabelFont size="50" path="font/opensans/OpenSans-Regular.ttf" />
+         </Font>
+         <Seasons path="textures/seasons/seasons.png">
+            <Spring x="0" y="0" width="355" height="355"> </Spring>
+			<Summer x="355" y="0" width="355" height="355"> </Summer>
+			<Autumnand x="0" y="355" width="355" height="355"> </Autumnand>
+			<Winter x="355" y="355" width="355" height="355"> </Winter>
+         </Seasons>
       </GameData>
-      
    </Config>
 </MyHarvest>

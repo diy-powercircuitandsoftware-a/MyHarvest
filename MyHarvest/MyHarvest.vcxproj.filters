@@ -19,12 +19,6 @@
     <Filter Include="Source Files\Game">
       <UniqueIdentifier>{5728c3d3-8ed7-4d6b-9321-02ccd57e88ec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Game\Title">
-      <UniqueIdentifier>{38bdb304-f0e4-4420-ae2b-84b7e02080f3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Game\Title">
-      <UniqueIdentifier>{3a70bb28-6120-4f99-b3fa-a51d104086f5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Game\Object">
       <UniqueIdentifier>{4e198f3c-c271-4006-9d51-faea28580504}</UniqueIdentifier>
     </Filter>
@@ -61,17 +55,44 @@
     <Filter Include="Source Files\Game\Config">
       <UniqueIdentifier>{36053be5-60c0-4bae-b709-9c18f0e686be}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game\Struct">
+      <UniqueIdentifier>{be55dac9-9b93-45e5-8a4e-369559b104d2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files\Game\UI">
-      <UniqueIdentifier>{662fd1f9-f826-43f6-9f97-667979b75c30}</UniqueIdentifier>
+      <UniqueIdentifier>{78e0aa05-265b-4546-bb7e-c30932b5b0af}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Game\UI">
-      <UniqueIdentifier>{ce1bafd4-07e6-420c-af55-2332f99eed33}</UniqueIdentifier>
+      <UniqueIdentifier>{5412a54a-794b-4987-947d-332ff5562eb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\UI\Title">
+      <UniqueIdentifier>{38bdb304-f0e4-4420-ae2b-84b7e02080f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\UI\Title">
+      <UniqueIdentifier>{3a70bb28-6120-4f99-b3fa-a51d104086f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Texture">
+      <UniqueIdentifier>{b71c56f4-bbe6-477f-a9b5-c68a7932d32b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Texture">
+      <UniqueIdentifier>{f284a0fc-80b5-4839-969c-29d1d981a179}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Texture\Seasons">
+      <UniqueIdentifier>{2ca5e18d-7a81-4871-9fdc-3c1dff6c5751}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\UI\Text">
+      <UniqueIdentifier>{3cd42625-9617-4f63-8169-1582f7b267b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\UI\Text">
+      <UniqueIdentifier>{3bd42cc1-9001-4df0-9952-b7112226595b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\UI\Text\List">
+      <UniqueIdentifier>{12a1f0ec-9cea-429d-b4fd-a8da955e8141}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\UI\Text\List">
+      <UniqueIdentifier>{d7a8cb39-fba8-4247-99cf-8513f191046a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game\Title\GameTitle.cpp">
-      <Filter>Source Files\Game\Title</Filter>
-    </ClCompile>
     <ClCompile Include="Game\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -84,28 +105,40 @@
     <ClCompile Include="Game\Config\SaveGame.cpp">
       <Filter>Source Files\Game\Config</Filter>
     </ClCompile>
-    <ClCompile Include="Game\UI\DrawTextList.cpp">
-      <Filter>Source Files\Game\UI</Filter>
+    <ClCompile Include="Game\UI\Title\GameTitle.cpp">
+      <Filter>Source Files\Game\UI\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\UI\Title\NewGame.cpp">
+      <Filter>Source Files\Game\UI\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\UI\Text\List\DrawTextList.cpp">
+      <Filter>Source Files\Game\UI\Text\List</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game\Title\GameTitle.h">
-      <Filter>Header Files\Game\Title</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Object\Player\Player.h">
       <Filter>Header Files\Game\Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Game\Config\ReadXMLConfig.h">
       <Filter>Header Files\Game\Config</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Config\FontConfig.h">
-      <Filter>Header Files\Game\Config</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Config\SaveGame.h">
       <Filter>Header Files\Game\Config</Filter>
     </ClInclude>
-    <ClInclude Include="Game\UI\DrawTextList.h">
-      <Filter>Header Files\Game\UI</Filter>
+    <ClInclude Include="Game\Struct\Size.h">
+      <Filter>Header Files\Game\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Texture\Seasons\Seasons.h">
+      <Filter>Header Files\Game\Texture\Seasons</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\UI\Title\GameTitle.h">
+      <Filter>Header Files\Game\UI\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\UI\Title\NewGame.h">
+      <Filter>Header Files\Game\UI\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\UI\Text\List\DrawTextList.h">
+      <Filter>Header Files\Game\UI\Text\List</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
