@@ -1,7 +1,8 @@
 #ifndef TEXTURE_SEASONS_H
 #define TEXTURE_SEASONS_H
-#include <string>
 #include "../../../GameEngine/raylib/src/raylib.h"
+#include <string>
+
 namespace GameTexture {
 	typedef struct Seasons
 	{

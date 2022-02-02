@@ -1,30 +1,55 @@
 #include "NewGame.h"
 #include "../../../GameEngine/raylib/src/extras/raygui.h"
+
 void NewGame::Init()
 {
 		    Vector2	measuretext = MeasureTextEx(this->TitleFont, "New Game", this->TitleFont.baseSize, this->TitleFont.glyphPadding);
-			this->uiposition.newgamelabel.x = (GetScreenWidth() / 2) - (measuretext.x / 2);
-			this->uiposition.newgamelabel.y = 0;
+			this->newgamelabel.x = (GetScreenWidth() / 2) - (measuretext.x / 2);
+			this->newgamelabel.y = 0;
+		
 			
-			GuiSetFont(this->LabelFont);
-		   	GuiSetStyle(DEFAULT, TEXT_ALIGNMENT, GUI_TEXT_ALIGN_CENTER);
+			//caculate ui position
 			this->drawtextlist.SetInitPosition(0, measuretext.y);
 			this->drawtextlist.Add((DrawTextList::TextData) { "Name:", this->LabelFont, WHITE });
+			this->drawtextlist.Add((DrawTextList::TextData) { "Farm Name:", this->LabelFont, WHITE });
 			this->drawtextlist.Add((DrawTextList::TextData) { "Gender:", this->LabelFont,  WHITE });
 			this->drawtextlist.Add((DrawTextList::TextData) { "Polyamory:", this->LabelFont,   WHITE });
 			this->drawtextlist.Add((DrawTextList::TextData) { "Born:", this->LabelFont,   WHITE });
 			this->drawtextlist.Update();		
 			std::map<std::string, Vector2> hashmap = this->drawtextlist.GetMapPosition();
 
-			this->uiposition.txtname.x = this->drawtextlist.MaxDistanceString.x;
-			this->uiposition.txtname.y = hashmap["Name:"].y;
-			this->uiposition.txtname.width = GetScreenWidth()- this->uiposition.txtname.x;
-			this->uiposition.txtname.height = this->drawtextlist.MaxDistanceString.y;
+			this->txtname = Controls::Textbox((Rectangle){
+				this->drawtextlist.MaxDistanceString.x,
+				hashmap["Name:"].y,
+				GetScreenWidth() - this->drawtextlist.MaxDistanceString.x,
+				this->drawtextlist.MaxDistanceString.y
+			});
+			this->txtname.Font = this->LabelFont;
+			 
+			this->txtfarmname = Controls::Textbox((Rectangle) {
+				this->drawtextlist.MaxDistanceString.x,
+					hashmap["Farm Name:"].y,
+					GetScreenWidth() - this->drawtextlist.MaxDistanceString.x,
+					this->drawtextlist.MaxDistanceString.y
+			});
+			this->txtfarmname.Font = this->LabelFont;
+			this->genderselector = Controls::DropDownBox((Rectangle) {
+					this->drawtextlist.MaxDistanceString.x,
+					hashmap["Gender:"].y,
+					GetScreenWidth() - this->drawtextlist.MaxDistanceString.x,
+					this->drawtextlist.MaxDistanceString.y
+			});
 
-			this->uiposition.genderselector.x = this->drawtextlist.MaxDistanceString.x;
-			this->uiposition.genderselector.y = hashmap["Gender:"].y;
-			this->uiposition.genderselector.width = GetScreenWidth() - this->uiposition.genderselector.x;
-			this->uiposition.genderselector.height = this->drawtextlist.MaxDistanceString.y;
+			  
+			this->genderselector.AddList(GameObject::Person::Gender::Bisexual, "Bisexual");
+			this->genderselector.AddList(GameObject::Person::Gender::Gay, "Gay");
+			this->genderselector.AddList(GameObject::Person::Gender::Lesbian, "Lesbian");
+			this->genderselector.AddList(GameObject::Person::Gender::Man, "Man");
+			this->genderselector.AddList(GameObject::Person::Gender::Woman, "Woman");
+			this->genderselector.Font = this->LabelFont;
+			 /*
+
+  
 
 			this->uiposition.chkboxpolyamory.x = this->drawtextlist.MaxDistanceString.x;
 			this->uiposition.chkboxpolyamory.y = hashmap["Polyamory:"].y;
@@ -41,45 +66,74 @@ void NewGame::Init()
 			this->uiposition.bornboxmonth.y = hashmap["Born:"].y;
 			this->uiposition.bornboxmonth.width = measuretext.x;
 			this->uiposition.bornboxmonth.height = this->drawtextlist.MaxDistanceString.y;
-			 
+			  
+			Image image = LoadImage(this->SeasonsTexture.path.c_str());  
+			this->seasonstexture2d= LoadTextureFromImage(image);			
+			this->uiposition.seasonpos.y = hashmap["Born:"].y + this->drawtextlist.MaxDistanceString.y;
+			UnloadImage(image);
+
+			this->uiposition.bnnewgame.x = 0;
+			this->uiposition.bnnewgame.width= GetScreenWidth();
+			this->uiposition.bnnewgame.height = this->drawtextlist.MaxDistanceString.y;
+			*/
+
+
 }
 
 void NewGame::Update()
 {
+/*
+	if (this->BornMonth <= 3) {
+		this->seasondrawrect = this->SeasonsTexture.spring;
+	}
+	else if (this->BornMonth >= 3 && this->BornMonth <= 6) {
+		this->seasondrawrect = this->SeasonsTexture.summer;
+	}
+	else if (this->BornMonth >= 6 && this->BornMonth <= 9) {
+		this->seasondrawrect = this->SeasonsTexture.autumnand;
+	}
+	else if (this->BornMonth > 9) {
+		this->seasondrawrect = this->SeasonsTexture.winter;
+	}
+	this->uiposition.seasonpos.x = (GetScreenWidth() / 2) - (this->seasondrawrect.width /2);
+	this->uiposition.bnnewgame.y = this->uiposition.seasonpos.y + this->seasondrawrect.height;*/
 }
 
 void NewGame::Render()
 {
-	DrawTextEx(this->TitleFont, "New Game", this->uiposition.newgamelabel, this->TitleFont.baseSize, this->TitleFont.glyphPadding, WHITE);
+	DrawTextEx(this->TitleFont, "New Game", this->newgamelabel, this->TitleFont.baseSize, this->TitleFont.glyphPadding, WHITE);
 	this->drawtextlist.Render();
 	//Draw Name Input
-	GuiTextBox(this->uiposition.txtname, this->player_name, 12, true);
+	this->txtname.Render();
+	this->txtfarmname.Render();
+
+	//Draw Seasons Icon //raygui not have zindex
+	DrawTextureRec(this->seasonstexture2d, this->seasondrawrect, this->uiposition.seasonpos, WHITE);
+
+
 	//Draw Gender Input
-	if (GuiDropdownBox(this->uiposition.genderselector, "Man;Woman;Gay;Lesbian;Bisexual", &this->gender, this->uiposition.selectgendertoggle))	this->uiposition.selectgendertoggle = !this->uiposition.selectgendertoggle;
-	//Draw Polyamory Input
-	this->uiposition.chkboxpolyamorytoggle = GuiCheckBox(this->uiposition.chkboxpolyamory, "(Not Love One)", this->uiposition.chkboxpolyamorytoggle);
-	//Draw Born Input
-	GuiSpinner(this->uiposition.bornboxday, "", &this->bornday, 1, 30, true);
-	GuiSpinner(this->uiposition.bornboxmonth, "", &this->bornmonth, 1, 12, true);
-
-	if (this->bornmonth <= 3) {
-
-	}
-	else if (this->bornmonth >= 3 && this->bornmonth <= 6) {
-
-	}
-	else if (this->bornmonth >= 6 && this->bornmonth <= 9) {
-
-	}
-	else if (this->bornmonth > 9) {
-
-	}
+	this->genderselector.Render();
+	 
 
 	/*
+	
 
-		
-		*/
-		//if (GuiButton((Rectangle) { 20, 20, 20, 20 }, "Press me!")) {
-		//	std::cout << "Pressed";
-	//	}
+	
+	//prevent render gender input reduce cpu used
+	if (!this->uiposition.selectgendertoggle) {
+		//Draw Polyamory Input
+		this->uiposition.chkboxpolyamorytoggle = GuiCheckBox(this->uiposition.chkboxpolyamory, "(Not Love One)", this->uiposition.chkboxpolyamorytoggle);
+		//Draw Born Input
+		GuiSpinner(this->uiposition.bornboxday, "", &this->BornDay, 1, 30, true);
+		GuiSpinner(this->uiposition.bornboxmonth, "", &this->BornMonth, 1, 12, true);
+	}	
+	GuiButton(this->uiposition.bnnewgame, "New Game");
+	*/
 }
+
+ 
+NewGame::~NewGame()
+{
+	UnloadTexture(this->seasonstexture2d);
+}
+ 

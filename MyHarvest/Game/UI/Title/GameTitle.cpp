@@ -1,15 +1,11 @@
 #include "GameTitle.h"
-#include "../../../GameEngine/raylib/src/raylib.h"
-#include "../Text/List/DrawTextList.h"
-#include <string>
- 
 
-GameTitle::GameTitle(    bool hadsavegame) {
-	 
-	 
+
+GameTitle::GameTitle(bool hadsavegame) {
 	this->hadsavegame = hadsavegame;
-
+ 
 }
+ 
 void GameTitle::Init()
 {
 	
@@ -28,6 +24,10 @@ void GameTitle::Init()
 	 
 	 
 }
+void GameTitle::SetSeasonsTexture(GameTexture::Seasons st)
+{
+	 this->uinewgame.SeasonsTexture=st;
+}
 void GameTitle::Update() {
 
 	if (this->scene == Selector::Main) {
@@ -39,18 +39,17 @@ void GameTitle::Update() {
 			this->modeselector = Selector::Loadgame;
 		}
 		else if (IsKeyDown(KEY_ENTER) && this->modeselector == Selector::Newgame) {
-			uinewgame.LabelFont = this->LabelFont;
-			uinewgame.TitleFont = this->TitleFont;
-			uinewgame.SelectorFont = this->SelectorFont;
-			uinewgame.Init();
+		 	this->uinewgame.LabelFont = this->LabelFont;
+		    this->uinewgame.TitleFont = this->TitleFont;
+		 	this->uinewgame.SelectorFont = this->SelectorFont;
+		    this->uinewgame.Init();
 			this->scene = Selector::Newgame;
 		}
 		else if (IsKeyDown(KEY_ENTER) && this->modeselector == Selector::Loadgame) {
 			this->scene = Selector::Loadgame;
 		}
-
-
-		 
+	}else if (this->scene == Selector::Newgame) {
+			this->uinewgame.Update();
 	}
 	
 	
@@ -73,10 +72,8 @@ void GameTitle::Render() {
 		DrawTextEx(this->SelectorFont, "New Game", this->labelnewgamepos, this->SelectorFont.baseSize, this->SelectorFont.glyphPadding, WHITE);
 	}
 	else if (this->scene == Selector::Newgame) {
-		uinewgame.Render();
-	
-		 
-
+		 this->uinewgame.Render();
+	 
 	}
 	
 

@@ -1,9 +1,4 @@
 #include "ReadXMLConfig.h"
-#include "../../GameEngine/raylib/src/raylib.h"
-  
-
-
-
 bool ReadXMLConfig::LoadConfig() {
  
 	if (!std::ifstream("Data/Config.xml").good()) return false;
@@ -21,7 +16,7 @@ bool ReadXMLConfig::LoadConfig() {
 			rapidxml::xml_node<>* gamedata = confignode->first_node("GameData");
 			if (gamedata == nullptr|| gamedata->first_attribute("assetpath") == nullptr)return false;			
 			rapidxml::xml_node<>* seasonsnode = gamedata->first_node("Seasons");
-			if (seasonsnode == nullptr)return false;
+			if (seasonsnode == nullptr|| seasonsnode->first_attribute("path")== nullptr)return false;
 
 			rapidxml::xml_node<>* fontnode = gamedata->first_node("Font");
 			rapidxml::xml_node<>* titlenode = gamedata->first_node("Title");
@@ -52,43 +47,38 @@ bool ReadXMLConfig::LoadConfig() {
 					
 				}
 			}
-			
+			if (seasonsnode->first_node("Spring")==nullptr)return false;
+			if (seasonsnode->first_node("Summer") == nullptr)return false;
+			if (seasonsnode->first_node("Autumnand") == nullptr)return false;
+			if (seasonsnode->first_node("Winter") == nullptr)return false;
+			this->SeasonsTexture.path =this->AssetPath +seasonsnode->first_attribute("path")->value();
 
-			/*
-			  
-			if (confignode->first_node("GameData") != nullptr) {
-				 
-				 
-				
-				this->SeasonsIcon.Path = std::string(seasonsnode->first_attribute("path")->value());
-				this->SeasonsIcon.Spring = (Rectangle){
-					std::stof(fontnode->first_node("Spring")->first_attribute("x")->value()),
-					std::stof(fontnode->first_node("Spring")->first_attribute("y")->value()),
-					std::stof(fontnode->first_node("Spring")->first_attribute("width")->value()),
-					std::stof(fontnode->first_node("Spring")->first_attribute("height")->value())
-				};
-				this->SeasonsIcon.Summer = (Rectangle){
-					std::stof(fontnode->first_node("Summer")->first_attribute("x")->value()),
-					std::stof(fontnode->first_node("Summer")->first_attribute("y")->value()),
-					std::stof(fontnode->first_node("Summer")->first_attribute("width")->value()),
-					std::stof(fontnode->first_node("Summer")->first_attribute("height")->value())
-				};
-				this->SeasonsIcon.Autumnand = (Rectangle){
-					std::stof(fontnode->first_node("Autumnand")->first_attribute("x")->value()),
-					std::stof(fontnode->first_node("Autumnand")->first_attribute("y")->value()),
-					std::stof(fontnode->first_node("Autumnand")->first_attribute("width")->value()),
-					std::stof(fontnode->first_node("Autumnand")->first_attribute("height")->value())
-				};
-				this->SeasonsIcon.Winter = (Rectangle){
-					std::stof(fontnode->first_node("Winter")->first_attribute("x")->value()),
-					std::stof(fontnode->first_node("Winter")->first_attribute("y")->value()),
-					std::stof(fontnode->first_node("Winter")->first_attribute("width")->value()),
-					std::stof(fontnode->first_node("Winter")->first_attribute("height")->value())
-				};
-
-			}		
-			*/
-			
+		 
+			this->SeasonsTexture.spring = (Rectangle){
+							   std::stof(seasonsnode->first_node("Spring")->first_attribute("x")->value()),
+							   std::stof(seasonsnode->first_node("Spring")->first_attribute("y")->value()),
+							   std::stof(seasonsnode->first_node("Spring")->first_attribute("width")->value()),
+							   std::stof(seasonsnode->first_node("Spring")->first_attribute("height")->value())
+			};
+			this->SeasonsTexture.summer = (Rectangle){
+				std::stof(seasonsnode->first_node("Summer")->first_attribute("x")->value()),
+				std::stof(seasonsnode->first_node("Summer")->first_attribute("y")->value()),
+				std::stof(seasonsnode->first_node("Summer")->first_attribute("width")->value()),
+				std::stof(seasonsnode->first_node("Summer")->first_attribute("height")->value())
+			};
+			this->SeasonsTexture.autumnand = (Rectangle){
+				std::stof(seasonsnode->first_node("Autumnand")->first_attribute("x")->value()),
+				std::stof(seasonsnode->first_node("Autumnand")->first_attribute("y")->value()),
+				std::stof(seasonsnode->first_node("Autumnand")->first_attribute("width")->value()),
+				std::stof(seasonsnode->first_node("Autumnand")->first_attribute("height")->value())
+			};
+			this->SeasonsTexture.winter = (Rectangle){
+				std::stof(seasonsnode->first_node("Winter")->first_attribute("x")->value()),
+				std::stof(seasonsnode->first_node("Winter")->first_attribute("y")->value()),
+				std::stof(seasonsnode->first_node("Winter")->first_attribute("width")->value()),
+				std::stof(seasonsnode->first_node("Winter")->first_attribute("height")->value())
+			};
+			 
 			return true;
 		}
 		catch (const rapidxml::parse_error& e) {
@@ -96,10 +86,3 @@ bool ReadXMLConfig::LoadConfig() {
 		}	
 	
 }
-/*
-void ReadXMLConfig::UpdateFont() {
-	this->SelectorFont.UpdateFont();
-	this->TitleFont.UpdateFont();
-	this->LabelFont.UpdateFont();
-}
-*/

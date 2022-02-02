@@ -91,6 +91,18 @@
     <Filter Include="Source Files\Game\UI\Text\List">
       <UniqueIdentifier>{d7a8cb39-fba8-4247-99cf-8513f191046a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game\UI\Controls">
+      <UniqueIdentifier>{5bb7704e-54a3-4717-866e-3402724957d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\UI\Controls">
+      <UniqueIdentifier>{953e9e3c-74af-4295-b2c2-ff5f7d1e39e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Object\Person">
+      <UniqueIdentifier>{d2befd86-0dde-45cc-95aa-a28fcf0fa1e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Object\Person">
+      <UniqueIdentifier>{ceeb4c1b-b1b6-4f06-a3e0-315f421caad5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\main.cpp">
@@ -108,11 +120,20 @@
     <ClCompile Include="Game\UI\Title\GameTitle.cpp">
       <Filter>Source Files\Game\UI\Title</Filter>
     </ClCompile>
+    <ClCompile Include="Game\UI\Text\List\DrawTextList.cpp">
+      <Filter>Source Files\Game\UI\Text\List</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\UI\Controls\Textbox.cpp">
+      <Filter>Source Files\Game\UI\Controls</Filter>
+    </ClCompile>
     <ClCompile Include="Game\UI\Title\NewGame.cpp">
       <Filter>Source Files\Game\UI\Title</Filter>
     </ClCompile>
-    <ClCompile Include="Game\UI\Text\List\DrawTextList.cpp">
-      <Filter>Source Files\Game\UI\Text\List</Filter>
+    <ClCompile Include="Game\UI\Controls\DropDownBox.cpp">
+      <Filter>Source Files\Game\UI\Controls</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Object\Person\Person.cpp">
+      <Filter>Source Files\Game\Object\Person</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,11 +155,20 @@
     <ClInclude Include="Game\UI\Title\GameTitle.h">
       <Filter>Header Files\Game\UI\Title</Filter>
     </ClInclude>
+    <ClInclude Include="Game\UI\Text\List\DrawTextList.h">
+      <Filter>Header Files\Game\UI\Text\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\UI\Controls\Textbox.h">
+      <Filter>Header Files\Game\UI\Controls</Filter>
+    </ClInclude>
     <ClInclude Include="Game\UI\Title\NewGame.h">
       <Filter>Header Files\Game\UI\Title</Filter>
     </ClInclude>
-    <ClInclude Include="Game\UI\Text\List\DrawTextList.h">
-      <Filter>Header Files\Game\UI\Text\List</Filter>
+    <ClInclude Include="Game\UI\Controls\DropDownBox.h">
+      <Filter>Header Files\Game\UI\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Object\Person\Person.h">
+      <Filter>Header Files\Game\Object\Person</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

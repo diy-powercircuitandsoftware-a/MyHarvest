@@ -145,7 +145,10 @@
     <ClCompile Include="Game\Config\ReadXMLConfig.cpp" />
     <ClCompile Include="Game\Config\SaveGame.cpp" />
     <ClCompile Include="Game\main.cpp" />
+    <ClCompile Include="Game\Object\Person\Person.cpp" />
     <ClCompile Include="Game\Object\Player\Player.cpp" />
+    <ClCompile Include="Game\UI\Controls\DropDownBox.cpp" />
+    <ClCompile Include="Game\UI\Controls\Textbox.cpp" />
     <ClCompile Include="Game\UI\Text\List\DrawTextList.cpp" />
     <ClCompile Include="Game\UI\Title\GameTitle.cpp" />
     <ClCompile Include="Game\UI\Title\NewGame.cpp" />
@@ -153,9 +156,12 @@
   <ItemGroup>
     <ClInclude Include="Game\Config\ReadXMLConfig.h" />
     <ClInclude Include="Game\Config\SaveGame.h" />
+    <ClInclude Include="Game\Object\Person\Person.h" />
     <ClInclude Include="Game\Object\Player\Player.h" />
     <ClInclude Include="Game\Struct\Size.h" />
     <ClInclude Include="Game\Texture\Seasons\Seasons.h" />
+    <ClInclude Include="Game\UI\Controls\DropDownBox.h" />
+    <ClInclude Include="Game\UI\Controls\Textbox.h" />
     <ClInclude Include="Game\UI\Text\List\DrawTextList.h" />
     <ClInclude Include="Game\UI\Title\GameTitle.h" />
     <ClInclude Include="Game\UI\Title\NewGame.h" />

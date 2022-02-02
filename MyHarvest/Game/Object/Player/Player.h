@@ -1,25 +1,26 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "../../../GameEngine/raylib/src/raylib.h"
+namespace GameObject {
+
 class Player
 {
 public:
-	typedef enum  GameGender { MAN ,WOMAN , GAY,LESBIAN, BISEXUAL} GameGender;
-	typedef struct GameMap
+
+	typedef struct PlayerPosition
 	{
 		int id;
 		int submapid;
 		Vector3 pos;
-	} GameMap;
-	typedef struct GameHome {
+	} PlayerPosition;
+	typedef struct PlayerHomePosition {
 		int mapid;
 		int homeid;
-	} GameHome;
-	const char* name = "";
-	char* born;
+	} PlayerHomePosition;
+	 
 	 
 	 
 	
 };
-
+}
 #endif

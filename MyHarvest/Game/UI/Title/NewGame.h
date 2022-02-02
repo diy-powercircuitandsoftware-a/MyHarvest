@@ -1,9 +1,11 @@
 #ifndef NEWGAME_H
 #define NEWGAME_H
-#include "../../Texture/Seasons/Seasons.h"
-#include "../Text/List/DrawTextList.h"
 #include "../../../GameEngine/raylib/src/raylib.h"
- 
+#include "../../Texture/Seasons/Seasons.h"
+#include "../../Object/Person/Person.h"
+#include "../Text/List/DrawTextList.h"
+#include "../Controls/Textbox.h"
+#include "../Controls/DropDownBox.h"
 
 class NewGame
 {
@@ -11,27 +13,43 @@ public:
 	void Init();
 	void Update();
 	void Render();
-	char player_name[12] = "Player";
-	int gender = 0;
-	int bornday = 1;
-	int bornmonth = 1;
+	 
+	 
 	GameTexture::Seasons SeasonsTexture;
 	Font SelectorFont;
 	Font TitleFont;
 	Font LabelFont;
+	
+	~NewGame();
 private:
+	Vector2 newgamelabel;
 	typedef struct UIPosition
 	{
-		Vector2 newgamelabel;
-		Rectangle txtname;
-		Rectangle genderselector;
+		
+		 
+		 
+ 
 		Rectangle chkboxpolyamory;
 		Rectangle bornboxday;
 		Rectangle bornboxmonth;
-		bool selectgendertoggle = false;
+		Rectangle bnnewgame;
+	 
 		bool chkboxpolyamorytoggle = false;
+		bool txtnametoggle = true;
+		bool txtfarmnametoggle = true;	 
+		bool txtborndaytoggle = true;
+		bool txtbornmonthtoggle = true;
+		Vector2 seasonpos;
 	}UIPosition;
 	UIPosition uiposition;
 	DrawTextList drawtextlist;
+	Texture2D seasonstexture2d;
+	Rectangle seasondrawrect;
+
+	Controls::Textbox txtname;
+	Controls::Textbox txtfarmname;
+	Controls::DropDownBox genderselector;
+	
+
 };
 #endif

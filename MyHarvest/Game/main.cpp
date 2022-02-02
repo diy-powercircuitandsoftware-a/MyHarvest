@@ -38,6 +38,7 @@ int main()
     gametitle.SelectorFont = fontlist["Selector"];
     gametitle.LabelFont = fontlist["Label"];
     gametitle.TitleFont = fontlist["Title"];
+    gametitle.SetSeasonsTexture(xmlconfig.SeasonsTexture);
     gametitle.Init();
    
     
